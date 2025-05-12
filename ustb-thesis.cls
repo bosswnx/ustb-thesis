@@ -8,6 +8,9 @@
   linespread=1.41,
 ]{ctexrep}
 
+\usepackage{geometry}
+\usepackage{graphicx}
+
 % 设置章节标题样式
 \ctexset{
   part = {
@@ -34,4 +37,13 @@
     beforeskip = {13pt},
     afterskip = {13pt}
   },
+}
+
+% 设置页边距
+\geometry{
+  top=3cm,        % 上边距3厘米
+  bottom=2cm,     % 下边距2厘米
+  left=3cm,       % 左边距（内边距）3厘米
+  right=3cm,      % 右边距（外边距）3厘米
+  bindingoffset=1cm  % 装订线距离1厘米
 }
