@@ -20,6 +20,10 @@
 \usetikzlibrary{calc}
 \usepackage{fancyhdr} % 添加 fancyhdr 包
 \usepackage{pdfpages}
+\usepackage[style=gb7714-2015]{biblatex}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{listings}
 
 % 设置页眉页脚
 \fancypagestyle{plain}{
@@ -111,4 +115,21 @@
       \newpage
     \fi
   \fi
+}
+
+% 设置参考文献样式
+\addbibresource{refs.bib}
+\defbibheading{bibliography}[\refname]{%
+  \begin{center}
+    \heiti\zihao{-3}参考文献
+  \end{center}
+}
+
+% 代码样式
+\lstset{
+    basicstyle=\ttfamily\small,
+    commentstyle=\color{gray},
+    breaklines=true,
+    frame=single, % 添加边框
+    numbers=left, % 行号
 }
