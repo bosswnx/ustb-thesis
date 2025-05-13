@@ -1,0 +1,53 @@
+\begin{tikzpicture}[remember picture, overlay]
+  % ---- 1. 绘制双线边框 ----
+  \draw[double, line width=1pt, double distance=1pt]
+      ($(current page.north west)+(3cm,-3cm)$) rectangle 
+      ($(current page.south east)+(-1cm,3cm)$);
+
+  % ---- 2. 在指定位置插入文字 ----
+  \node[align=center, font=\bfseries\fontsize{36}{40}\selectfont] 
+      at ($(current page.center)+(1cm,6.5cm)$) {本科生毕业设计(论文)};
+  \node[align=center, font=\heiti\zihao{-3}\bfseries\selectfont] 
+      at ($(current page.center)+(1.5cm,2cm)$) {
+        题\hspace{2em}目：\songti\mdseries\uline{\makebox[7cm]{\ctitlefirst}}
+      };
+  \node[align=center, font=\heiti\zihao{-3}\bfseries\selectfont] 
+      at ($(current page.center)+(1.5cm,0.7 0cm)$) {
+        \hspace{5em}\songti\mdseries\uline{\makebox[7cm]{\ctitlesecond}}
+      };
+  \node[align=center, font=\heiti\zihao{-3}\bfseries\selectfont] 
+      at ($(current page.center)+(1.5cm,-0.6cm)$) {
+        英文题目：\songti\mdseries\uline{\makebox[7cm]{\etitlefirst}}
+      };
+  \node[align=center, font=\heiti\zihao{-3}\bfseries\selectfont] 
+      at ($(current page.center)+(1.5cm,-1.9cm)$) {
+        \hspace{5em}\songti\mdseries\uline{\makebox[7cm]{\etitlesecond}}
+      };
+  \node[align=center, font=\heiti\zihao{-3}\bfseries\selectfont] 
+      at ($(current page.center)+(1.5cm,-3.2cm)$) {
+        学\hspace{2em}院：\songti\mdseries\uline{\makebox[7cm]{\collage}}
+      };
+  \node[align=center, font=\heiti\zihao{-3}\bfseries\selectfont] 
+      at ($(current page.center)+(1.5cm,-4.5cm)$) {
+        班\hspace{2em}级：\songti\mdseries\uline{\makebox[7cm]{\class}}
+      };
+  \node[align=center, font=\heiti\zihao{-3}\bfseries\selectfont] 
+      at ($(current page.center)+(1.5cm,-5.8cm)$) {
+        学\hspace{2em}生：\songti\mdseries\uline{\makebox[7cm]{\name}}
+      };
+  \node[align=center, font=\heiti\zihao{-3}\bfseries\selectfont] 
+      at ($(current page.center)+(1.5cm,-7.1cm)$) {
+        学\hspace{2em}号：\songti\mdseries\uline{\makebox[7cm]{\id}}
+      };
+  \node[align=center, font=\heiti\zihao{-3}\bfseries\selectfont] 
+      at ($(current page.center)+(1.5cm,-8.4cm)$) {
+        指导教师：\songti\mdseries\uline{\makebox[2.6cm]{\firstmentorname}}
+        \heiti\bfseries 职称：\songti\mdseries\uline{\makebox[2.65cm]{\firstmentortitle}}
+      };
+  \node[align=center, font=\heiti\zihao{-3}\bfseries\selectfont] 
+      at ($(current page.center)+(1.5cm,-9.7cm)$) {
+        指导教师：\songti\mdseries\uline{\makebox[2.6cm]{\firstmentorname}}
+        \heiti\bfseries 职称：\songti\mdseries\uline{\makebox[2.65cm]{\firstmentortitle}}
+      };
+
+\end{tikzpicture}

@@ -15,6 +15,10 @@
 \usepackage{pgfkeys}
 \usepackage[normalem]{ulem} % 下划线包
 \usepackage{xparse} % 用于更强大的命令定义
+\usepackage{framed}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
 
 % 设置章节标题样式
 \ctexset{
