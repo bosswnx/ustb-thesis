@@ -75,17 +75,17 @@
   {\songti\zihao{-4}}
   {\contentslabel{0pt}\hspace{1em}}
   {}
-  {\hfill\contentspage}
+  {\titlerule*[0.5pc]{.}\contentspage}
 \titlecontents{section}[2em]
   {\songti\zihao{-4}}
   {\contentslabel{0pt}\hspace{1.75em}}
   {}
-  {\hfill\contentspage}
+  {\titlerule*[0.5pc]{.}\contentspage}
 \titlecontents{subsection}[4em]
   {\songti\zihao{-4}}
   {\contentslabel{0pt}\hspace{2.5em}}
   {}
-  {\hfill\contentspage}
+  {\titlerule*[0.5pc]{.}\contentspage}
 
 % 重定义 cleardoublepage 命令，确保奇数页不显示页码
 \renewcommand{\cleardoublepage}{%
