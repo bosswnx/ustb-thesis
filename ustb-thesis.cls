@@ -136,3 +136,13 @@
     frame=single, % 添加边框
     numbers=left, % 行号
 }
+
+% 修改图片编号格式
+\renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}
+
+% 修改表格编号格式
+\renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}
+
+% 修改引用格式，自动添加"图"和"表"字
+\newcommand{\figref}[1]{图\ref{#1}}
+\newcommand{\tabref}[1]{表\ref{#1}}
