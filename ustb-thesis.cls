@@ -18,7 +18,20 @@
 \usepackage{framed}
 \usepackage{tikz}
 \usetikzlibrary{calc}
+\usepackage{fancyhdr} % 添加 fancyhdr 包
 
+% 设置页眉页脚
+\pagestyle{fancy}
+\fancyhf{} % 清除所有页眉页脚
+\fancyfoot[C]{-\thepage-} % 在页码前后添加短横线
+\renewcommand{\headrulewidth}{0pt} % 移除页眉线
+
+% 设置 plain 样式（用于 chapter 首页）
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[C]{-\ \thepage\ -}
+  \renewcommand{\headrulewidth}{0pt}
+}
 
 % 设置章节标题样式
 \ctexset{
@@ -71,3 +84,17 @@
   {\contentslabel{0pt}\hspace{2.5em}}
   {}
   {\hfill\contentspage}
+
+% 重定义 cleardoublepage 命令，确保奇数页不显示页码
+\renewcommand{\cleardoublepage}{%
+  \clearpage
+  \if@twoside
+    \ifodd\c@page
+      \thispagestyle{fancy} % 使用 fancy 样式
+    \else
+      \thispagestyle{empty} % 强制当前页不显示页码（empty 样式）
+      \hbox{} % 空内容
+      \newpage
+    \fi
+  \fi
+}
