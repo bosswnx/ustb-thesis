@@ -22,14 +22,15 @@
 \usepackage{pdfpages}
 
 % 设置页眉页脚
-\pagestyle{fancy}
-\fancyhf{} % 清除所有页眉页脚
-\fancyfoot[C]{-\thepage-} % 在页码前后添加短横线
-\renewcommand{\headrulewidth}{0pt} % 移除页眉线
-
-% 设置 plain 样式（用于 chapter 首页）
 \fancypagestyle{plain}{
   \fancyhf{}
+  \fancyhead[C]{%
+    \begin{minipage}{\textwidth}
+      \centering
+      \songti\zihao{5}北京科技大学本科生毕业设计(论文)\\
+      \rule[1cm]{\textwidth}{0.1pt}
+    \end{minipage}
+  }
   \fancyfoot[C]{-\ \thepage\ -}
   \renewcommand{\headrulewidth}{0pt}
 }
@@ -91,7 +92,6 @@
   \clearpage
   \if@twoside
     \ifodd\c@page
-      \thispagestyle{fancy} % 使用 fancy 样式
     \else
       \thispagestyle{empty} % 强制当前页不显示页码（empty 样式）
       \hbox{} % 空内容
