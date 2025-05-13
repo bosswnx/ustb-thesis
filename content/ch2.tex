@@ -27,13 +27,21 @@
 行内公式：$E=mc^2$
 
 行间公式：
-\[ \int_{a}^{b} x^2 \,dx \]
+\begin{equation}
+  \int_{a}^{b} x^2 \,dx
+  \label{eq:integral}
+\end{equation}
 
 多行公式：
-\begin{align}
-    f(x) &= x^2 + 2x + 1 \\
-         &= (x + 1)^2
-\end{align}
+\begin{equation}
+    \begin{aligned}
+        f(x) &= x^2 + 2x + 1 \\
+             &= (x + 1)^2
+    \end{aligned}
+    \label{eq:quadratic}
+\end{equation}
+
+公式引用测试：\eqref{eq:integral}和\eqref{eq:quadratic}。
 
 \section{表格}
 
@@ -63,12 +71,12 @@ A & B & C \\
 \section{代码}
 
 \begin{lstlisting}[language=Python]
-  # 这是一个Python代码块
-  def hello_world():
-      print("Hello, LaTeX!")
-  
-  if __name__ == "__main__":
-      hello_world()
+# 这是一个Python代码块
+def hello_world():
+    print("Hello, LaTeX!")
+
+if __name__ == "__main__":
+    hello_world()
 \end{lstlisting}
 
 \section{参考文献引用}
@@ -78,3 +86,4 @@ A & B & C \\
 表格引用测试\tabref{tab:example}。
 
 图片引用测试\figref{fig:example}。
+

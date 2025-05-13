@@ -9,6 +9,7 @@
   linespread=1.41,
 ]{ctexrep}
 
+\usepackage{amsmath}
 \usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{titletoc}
@@ -21,7 +22,6 @@
 \usepackage{fancyhdr} % 添加 fancyhdr 包
 \usepackage{pdfpages}
 \usepackage[style=gb7714-2015]{biblatex}
-\usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{listings}
 
@@ -143,6 +143,19 @@
 % 修改表格编号格式
 \renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}
 
+% 修改公式编号格式
+\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
+
 % 修改引用格式，自动添加"图"和"表"字
 \newcommand{\figref}[1]{图\ref{#1}}
 \newcommand{\tabref}[1]{表\ref{#1}}
+
+% 设置行间公式和多行公式的编号
+\everymath{\displaystyle}
+% \setlength{\mathindent}{0pt}
+% \allowdisplaybreaks[4]
+
+% 设置多行公式的编号
+\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
+\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
+\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
