@@ -20,6 +20,8 @@
 \renewcommand{\year}{2025}  % 年份
 \renewcommand{\month}{05}  % 月份
 \newcommand{\miji}{公开}  % 密级
+\newcommand{\ckeywords}{模糊测试, RISC-V, SBI}  % 中文关键词
+\newcommand{\ekeywords}{Fuzzing, RISC-V, SBI}  % 英文关键词
 
 
 \begin{document}
@@ -49,19 +51,26 @@
 
 \cleardoublepage
 
+\input{content/figures-and-tables.tex}  % 插图或附表清单页面，不需要时请删除此行
+
+\cleardoublepage
+
+\input{content/notes-and-explanations.tex}  % 注释说明清单页面，不需要时请删除此行
+
+\cleardoublepage
+
 \pagenumbering{arabic}
-\chapter{第一章}
-\section{第一节}
-\subsection{第一小节}
-中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试
 
-中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试
-\section{第一节}
+% 正文页面，删除添加章节请修改这里的内容
+\input{content/ch1.tex}
+\input{content/ch2.tex}
+\input{content/ch3.tex}
+\input{content/ch4.tex}
+\input{content/ch5.tex}
 
-\section{第一节}
-\section{第一节}
-\section{第一节}
-\section{第一节}
-\section{第一节}
+\cleardoublepage
+
+\input{content/references.tex}
+
 \end{document}
 

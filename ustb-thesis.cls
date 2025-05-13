@@ -35,6 +35,19 @@
   \renewcommand{\headrulewidth}{0pt}
 }
 
+% 设置普通页面的页眉页脚
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{%
+  \begin{minipage}{\textwidth}
+    \centering
+    \songti\zihao{5}北京科技大学本科生毕业设计(论文)\\
+    \rule[1cm]{\textwidth}{0.1pt}
+  \end{minipage}
+}
+\fancyfoot[C]{-\ \thepage\ -}
+\renewcommand{\headrulewidth}{0pt}
+
 % 设置章节标题样式
 \ctexset{
   chapter = {
