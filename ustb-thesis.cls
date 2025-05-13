@@ -19,6 +19,7 @@
 \usepackage{tikz}
 \usetikzlibrary{calc}
 \usepackage{fancyhdr} % 添加 fancyhdr 包
+\usepackage{pdfpages}
 
 % 设置页眉页脚
 \pagestyle{fancy}
