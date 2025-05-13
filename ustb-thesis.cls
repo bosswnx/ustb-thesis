@@ -11,6 +11,7 @@
 
 \usepackage{geometry}
 \usepackage{graphicx}
+\usepackage{titletoc}
 \usepackage{pgfkeys}
 \usepackage[normalem]{ulem} % 下划线包
 \usepackage{xparse} % 用于更强大的命令定义
@@ -47,3 +48,22 @@
   right=3cm,      % 右边距（外边距）3厘米
   bindingoffset=1cm  % 装订线距离1厘米
 }
+
+% 设置目录页格式
+\renewcommand{\contentsname}{\centering 目\hspace{1em}录\par}
+
+\titlecontents{chapter}[0pt]
+  {\songti\zihao{-4}}
+  {\contentslabel{0pt}\hspace{1em}}
+  {}
+  {\hfill\contentspage}
+\titlecontents{section}[2em]
+  {\songti\zihao{-4}}
+  {\contentslabel{0pt}\hspace{1.75em}}
+  {}
+  {\hfill\contentspage}
+\titlecontents{subsection}[4em]
+  {\songti\zihao{-4}}
+  {\contentslabel{0pt}\hspace{2.5em}}
+  {}
+  {\hfill\contentspage}
