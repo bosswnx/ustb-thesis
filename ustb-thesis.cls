@@ -17,15 +17,11 @@
 
 % 设置章节标题样式
 \ctexset{
-  part = {
-    name = {},
-    break = \cleardoublepage,
-  },
   chapter = {
     name = {},
     number = \arabic{chapter},
     format = \heiti\zihao{-3}\bfseries,
-    beforeskip = {17pt},
+    beforeskip = {0pt},
     afterskip = {17pt},
     break = \clearpage,
   },
