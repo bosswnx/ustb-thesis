@@ -35,27 +35,28 @@
       \rule[1cm]{\textwidth}{0.1pt}
     \end{minipage}
   }
-  \fancyfoot[C]{-\ \thepage\ -}
+  \fancyfoot[C]{\raisebox{1.5ex}{\zihao{5}-\ \thepage\ -}}
   \renewcommand{\headrulewidth}{0pt}
 }
 
 % 设置普通页面的页眉页脚
 \pagestyle{fancy}
-\fancyhf{}
-\fancyhead[C]{%
-  \begin{minipage}{\textwidth}
-    \centering
-    \songti\zihao{5}北京科技大学本科生毕业设计(论文)\\
-    \rule[1cm]{\textwidth}{0.1pt}
-  \end{minipage}
-}
-\fancyfoot[C]{-\ \thepage\ -}
+  \fancyhf{}
+  \fancyhead[C]{%
+    \begin{minipage}{\textwidth}
+      \centering
+      \songti\zihao{5}北京科技大学本科生毕业设计(论文)\\
+      \rule[1cm]{\textwidth}{0.1pt}
+    \end{minipage}
+  }
+  \fancyfoot[C]{\raisebox{1.5ex}{\zihao{5}-\ \thepage\ -}}
 \renewcommand{\headrulewidth}{0pt}
 
 % 设置章节标题样式
 \ctexset{
   chapter = {
     name = {},
+    aftername = {},
     number = \arabic{chapter},
     format = \heiti\zihao{-3}\bfseries,
     beforeskip = {0pt},
@@ -63,12 +64,14 @@
     break = \clearpage,
   },
   section = {
+    aftername = {},
     format = \heiti\zihao{4}\bfseries,
     hang=false,
     beforeskip = {13pt},
     afterskip = {13pt}
   },
   subsection = {
+    aftername = {},
     format = \heiti\zihao{4}\bfseries,
     hang=false,
     beforeskip = {13pt},
@@ -79,7 +82,7 @@
 % 设置页边距
 \geometry{
   top=3cm,        % 上边距3厘米
-  bottom=2cm,     % 下边距2厘米
+  bottom=2.5cm,     % 下边距2.5厘米（按照官方模板应当是2cm，但实际使用中发现2cm会导致页码显示不全，因此改为2.5cm）
   left=3cm,       % 左边距（内边距）3厘米
   right=3cm,      % 右边距（外边距）3厘米
   bindingoffset=1cm  % 装订线距离1厘米
