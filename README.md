@@ -34,9 +34,11 @@ ustb-thesis/
 │   ├── ch...              // 正文...
 │   ├── eabstract.tex      // 英文摘要
 │   ├── figures-and-tables.tex       // 插图或附表清单
-│   ├── notes-and-explanations.tex   // 插图或附表清单
-│   ├── thanks.tex         // 致谢
-│   └── integration/
+│   ├── notes-and-explanations.tex   // 注释说明清单
+│   └── thanks.tex         // 致谢
+├── src/         // 模板的源码
+│   └── 4-taskplan.pdf     // 任务计划书导出的 PDF
+├── imgs/        // 存放图片
 └── refs.bib     // 参考文献bib数据
 ```
 
