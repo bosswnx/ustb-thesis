@@ -89,6 +89,10 @@ xelatex main
 
 请从「任务计划书」的 Word 文件导出 pdf，然后替换 `src/4-taskplan.pdf` 即可。
 
+### 如何在 Overleaf 上使用？
+
+将本项目打包为 zip 文件，导入 Overleaf。导入后进入 `Menu -> Settings -> Compiler`，将其设置为 `XeLaTeX`，重新编译即可。
+
 ## 其他资料
 
 毕业论文的构成（引用自学校官方模板，毕业论文撰写简要指南，表Z-1 毕业论文的构成）：
