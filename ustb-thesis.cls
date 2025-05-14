@@ -56,7 +56,6 @@
 \ctexset{
   chapter = {
     name = {},
-    aftername = {},
     number = \arabic{chapter},
     format = \heiti\zihao{-3}\bfseries,
     beforeskip = {0pt},
@@ -64,14 +63,12 @@
     break = \clearpage,
   },
   section = {
-    aftername = {},
     format = \heiti\zihao{4}\bfseries,
     hang=false,
     beforeskip = {13pt},
     afterskip = {13pt}
   },
   subsection = {
-    aftername = {},
     format = \heiti\zihao{4}\bfseries,
     hang=false,
     beforeskip = {13pt},
