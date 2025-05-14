@@ -12,6 +12,8 @@
 
 ## 快速开始
 
+本章节介绍的是如何在本地编译 LaTeX，若想在线上平台（例如 Overleaf）等使用本模板，请阅读「[常见问题](#常见问题)」章节。
+
 ### 配置 LaTeX 环境
 
 关于如何安装 LaTeX 网络上的教程有很多，这里给出一份 TexLive 的安装教程：https://www.cnblogs.com/eslzzyl/p/17358405.html
@@ -91,7 +93,13 @@ xelatex main
 
 ### 如何在 Overleaf 上使用？
 
-将本项目打包为 zip 文件，导入 Overleaf。导入后进入 `Menu -> Settings -> Compiler`，将其设置为 `XeLaTeX`，重新编译即可。
+将本项目打包为 zip 文件，在 Overleaf 中选择上传项目。打开项目后，进入 `Menu -> Settings -> Compiler`，将其设置为 `XeLaTeX`，重新编译即可。
+
+### 如何在其他在线平台上使用？
+
+由于 Overleaf 经常有网络问题，这里推荐一个国内的替代品：[TexPage](https://www.texpage.com/zh/)（不是广告）。
+
+同 Overleaf，将本项目打包为 zip，选择「上传项目」即可。国内平台自动会配置为 XeLaTeX，不需要手动设置。
 
 ## 其他资料
 
