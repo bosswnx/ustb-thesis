@@ -2,12 +2,13 @@
 
 \LoadClass[
   a4paper,
-  twoside, 
+  twoside,
   scheme=chinese,
   zihao=-4,
   autoindent=true,
   linespread=1.41,
 ]{ctexrep}
+\setlength{\parskip}{1.2pt plus 0pt minus 0pt}  % 确保段落间距精确为2pt
 
 \usepackage{amsmath}
 \usepackage{geometry}
@@ -24,6 +25,102 @@
 \usepackage[style=gb7714-2015]{biblatex}
 \usepackage{booktabs}
 \usepackage{listings}
+\usepackage{eso-pic}
+\usepackage{xcolor}
+\RequirePackage{caption}
+
+\RequirePackage{xeCJK}
+\RequirePackage{ifplatform}  % 用于检测操作系统平台
+
+% 设置中文字体加粗参数
+\xeCJKsetup{EmboldenFactor=3}
+
+% 创建判断Overleaf平台的命令
+\newif\ifoverleaf
+\overleaffalse
+
+% 检测是否在Overleaf上运行
+\IfFileExists{/etc/overleaf/env}{
+  \overleaftrue
+}{}
+
+% 根据平台选择不同的字体设置
+\ifoverleaf
+  % Overleaf平台字体设置
+  \newcommand\ustb@set@cjk@font@overleaf{%
+    \setCJKmainfont{Noto Serif CJK SC}[
+      AutoFakeBold = true,
+      ItalicFont   = Noto Sans CJK SC,
+    ]%
+    \setCJKsansfont{Noto Sans CJK SC}[AutoFakeBold=true]%
+    \setCJKmonofont{Noto Sans Mono CJK SC}%
+    \setCJKfamilyfont{zhsong}{Noto Serif CJK SC}[AutoFakeBold=true]%
+    \setCJKfamilyfont{zhhei}{Noto Sans CJK SC}[AutoFakeBold=true]%
+    \setCJKfamilyfont{zhkai}{Noto Sans CJK SC}[AutoFakeBold=true]%
+    \setCJKfamilyfont{zhfs}{Noto Serif CJK SC}[AutoFakeBold=true]%
+  }
+  \ustb@set@cjk@font@overleaf
+\else
+  \ifwindows
+    % Windows平台字体设置
+    \newcommand\ustb@set@cjk@font@windows{%
+      \setCJKmainfont{SimSun}[
+        AutoFakeBold = true,
+        ItalicFont   = KaiTi,
+      ]%
+      \setCJKsansfont{SimHei}[AutoFakeBold=true]%
+      \setCJKmonofont{FangSong}%
+      \setCJKfamilyfont{zhsong}{SimSun}[AutoFakeBold=true]%
+      \setCJKfamilyfont{zhhei}{SimHei}[AutoFakeBold=true]%
+      \setCJKfamilyfont{zhkai}{KaiTi}[AutoFakeBold=true]%
+      \setCJKfamilyfont{zhfs}{FangSong}[AutoFakeBold=true]%
+    }
+    \ustb@set@cjk@font@windows
+  \else
+    \ifmacosx
+      % macOS平台字体设置
+      \newcommand\ustb@set@cjk@font@mac{%
+        \setCJKmainfont{Songti SC}[
+          AutoFakeBold = true,
+          ItalicFont   = Kaiti SC,
+        ]%
+        \setCJKsansfont{Heiti SC}[AutoFakeBold=true]%
+        \setCJKmonofont{STFangsong}%
+        \setCJKfamilyfont{zhsong}{Songti SC}[AutoFakeBold=true]%
+        \setCJKfamilyfont{zhhei}{Heiti SC}[AutoFakeBold=true]%
+        \setCJKfamilyfont{zhkai}{Kaiti SC}[AutoFakeBold=true]%
+        \setCJKfamilyfont{zhfs}{STFangsong}[AutoFakeBold=true]%
+      }
+      \ustb@set@cjk@font@mac
+    \else
+      % Linux平台字体设置
+      \newcommand\ustb@set@cjk@font@linux{%
+        \setCJKmainfont{Noto Serif CJK SC}[
+          AutoFakeBold = true,
+          ItalicFont   = Noto Sans CJK SC,
+        ]%
+        \setCJKsansfont{Noto Sans CJK SC}[AutoFakeBold=true]%
+        \setCJKmonofont{Noto Sans Mono CJK SC}%
+        \setCJKfamilyfont{zhsong}{Noto Serif CJK SC}[AutoFakeBold=true]%
+        \setCJKfamilyfont{zhhei}{Noto Sans CJK SC}[AutoFakeBold=true]%
+        \setCJKfamilyfont{zhkai}{Noto Sans CJK SC}[AutoFakeBold=true]%
+        \setCJKfamilyfont{zhfs}{Noto Serif CJK SC}[AutoFakeBold=true]%
+      }
+      \ustb@set@cjk@font@linux
+    \fi
+  \fi
+\fi
+
+% 定义带自动加粗效果的命令
+\providecommand{\boldsongti}{\songti\bfseries}
+\providecommand{\boldheiti}{\heiti\bfseries}
+\providecommand{\boldkaiti}{\kaishu\bfseries}
+\providecommand{\boldfangsong}{\fangsong\bfseries}
+
+% 设置西文默认字体为Times New Roman
+\setmainfont{Times New Roman}[
+  Ligatures = TeX,
+]
 
 % 设置页眉页脚
 \fancypagestyle{plain}{
@@ -56,23 +153,31 @@
 \ctexset{
   chapter = {
     name = {},
+    aftername = {},
+    nameformat = {},
+    titleformat = {},
     number = \arabic{chapter},
     format = \heiti\zihao{-3}\bfseries,
-    beforeskip = {0pt},
-    afterskip = {17pt},
+    beforeskip = {19pt},
+    afterskip = {27pt},
+    fixskip = true,        % 固定间距
     break = \clearpage,
   },
   section = {
+    aftername = {},
     format = \heiti\zihao{4}\bfseries,
     hang=false,
-    beforeskip = {13pt},
-    afterskip = {13pt}
+    beforeskip = {22pt},
+    afterskip = {23.5pt},
+    fixskip = true        % 固定间距
   },
   subsection = {
+    aftername = {},
     format = \heiti\zihao{4}\bfseries,
     hang=false,
-    beforeskip = {13pt},
-    afterskip = {13pt}
+    beforeskip = {22pt},
+    afterskip = {23.5pt},
+    fixskip = true        % 固定间距
   },
 }
 
@@ -82,7 +187,10 @@
   bottom=2.5cm,     % 下边距2.5厘米（按照官方模板应当是2cm，但实际使用中发现2cm会导致页码显示不全，因此改为2.5cm）
   left=3cm,       % 左边距（内边距）3厘米
   right=3cm,      % 右边距（外边距）3厘米
-  bindingoffset=1cm  % 装订线距离1厘米
+  bindingoffset=1cm,   % 装订线距离1厘米
+  headheight=0.5cm,  % 页眉高度0.5厘米
+  headsep=1.0cm,     % 页眉底端到正文顶端的距离1.0厘米（用于设置页眉）
+  footskip=0.8cm,    % 正文底端到页脚底端的距离（用于设置页脚页码）
 }
 
 % 设置目录页格式
@@ -156,3 +264,27 @@
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
+
+\DeclareCaptionLabelSeparator{myspace}{\hspace{5pt}} %设置新间隔长度
+% 设置图标题格式：五号、黑体、加粗
+\DeclareCaptionFont{ustbfigfont}{\zihao{5}\boldheiti}
+\captionsetup[figure]{
+  font=ustbfigfont,
+  labelsep=myspace,                 % 使用空格代替冒号
+  aboveskip=0pt plus 0pt minus 0pt,         % 标题之前的距离
+  skip=9pt plus 0pt minus 0pt,              % 标题与图片之间的距离
+  belowskip=2pt plus 0pt minus 0pt          % 标题之后的距离
+}
+
+% 设置表标题格式：五号、黑体、加粗
+\DeclareCaptionFont{ustbtabfont}{\zihao{5}\boldheiti}
+\captionsetup[table]{
+  font=ustbtabfont,
+   labelsep=myspace,                 % 使用空格代替冒号
+  aboveskip=0pt plus 0pt minus 0pt,          % 标题之前的距离
+  skip=10pt plus 0pt minus 0pt,              % 标题与表格之间的距离
+  belowskip=12pt plus 0pt minus 0pt          % 标题之前的距离
+}
+
+\AtBeginEnvironment{figure}{\vspace{-2pt}}  % 图片环境前添加额外间距
+\AtEndEnvironment{table}{\vspace{-6pt}}     % 表格环境后添加额外间距
