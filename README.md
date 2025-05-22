@@ -50,6 +50,10 @@ ustb-thesis/
 
 ### 编译
 
+在 Windows 平台中，使用 TexLive 附带的 TeXworks editor 打开项目，将编辑器切换为 `XeLaTeX`（默认为 `pdfLaTeX`），点击编译即可。
+
+在 Linux 平台中：
+
 在没有更新参考文献的情况下，直接执行以下命令即可编译得到最终文件 `main.pdf`：
 
 ```bash
