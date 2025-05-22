@@ -45,70 +45,26 @@
 }{}
 
 % 根据平台选择不同的字体设置
-\ifoverleaf
-  % Overleaf平台字体设置
-  \newcommand\ustb@set@cjk@font@overleaf{%
-    \setCJKmainfont{Noto Serif CJK SC}[
+\ifwindows
+  % Windows平台字体设置
+  \newcommand\ustb@set@cjk@font@windows{%
+    \setCJKmainfont{SimSun}[
       AutoFakeBold = true,
-      ItalicFont   = Noto Sans CJK SC,
+      ItalicFont   = KaiTi,
     ]%
-    \setCJKsansfont{Noto Sans CJK SC}[AutoFakeBold=true]%
-    \setCJKmonofont{Noto Sans Mono CJK SC}%
-    \setCJKfamilyfont{zhsong}{Noto Serif CJK SC}[AutoFakeBold=true]%
-    \setCJKfamilyfont{zhhei}{Noto Sans CJK SC}[AutoFakeBold=true]%
-    \setCJKfamilyfont{zhkai}{Noto Sans CJK SC}[AutoFakeBold=true]%
-    \setCJKfamilyfont{zhfs}{Noto Serif CJK SC}[AutoFakeBold=true]%
+    \setCJKsansfont{SimHei}[AutoFakeBold=true]%
+    \setCJKmonofont{FangSong}%
+    \setCJKfamilyfont{zhsong}{SimSun}[AutoFakeBold=true]%
+    \setCJKfamilyfont{zhhei}{SimHei}[AutoFakeBold=true]%
+    \setCJKfamilyfont{zhkai}{KaiTi}[AutoFakeBold=true]%
+    \setCJKfamilyfont{zhfs}{FangSong}[AutoFakeBold=true]%
   }
-  \ustb@set@cjk@font@overleaf
-\else
-  \ifwindows
-    % Windows平台字体设置
-    \newcommand\ustb@set@cjk@font@windows{%
-      \setCJKmainfont{SimSun}[
-        AutoFakeBold = true,
-        ItalicFont   = KaiTi,
-      ]%
-      \setCJKsansfont{SimHei}[AutoFakeBold=true]%
-      \setCJKmonofont{FangSong}%
-      \setCJKfamilyfont{zhsong}{SimSun}[AutoFakeBold=true]%
-      \setCJKfamilyfont{zhhei}{SimHei}[AutoFakeBold=true]%
-      \setCJKfamilyfont{zhkai}{KaiTi}[AutoFakeBold=true]%
-      \setCJKfamilyfont{zhfs}{FangSong}[AutoFakeBold=true]%
-    }
-    \ustb@set@cjk@font@windows
-  \else
-    \ifmacosx
-      % macOS平台字体设置
-      \newcommand\ustb@set@cjk@font@mac{%
-        \setCJKmainfont{Songti SC}[
-          AutoFakeBold = true,
-          ItalicFont   = Kaiti SC,
-        ]%
-        \setCJKsansfont{Heiti SC}[AutoFakeBold=true]%
-        \setCJKmonofont{STFangsong}%
-        \setCJKfamilyfont{zhsong}{Songti SC}[AutoFakeBold=true]%
-        \setCJKfamilyfont{zhhei}{Heiti SC}[AutoFakeBold=true]%
-        \setCJKfamilyfont{zhkai}{Kaiti SC}[AutoFakeBold=true]%
-        \setCJKfamilyfont{zhfs}{STFangsong}[AutoFakeBold=true]%
-      }
-      \ustb@set@cjk@font@mac
-    \else
-      % Linux平台字体设置
-      \newcommand\ustb@set@cjk@font@linux{%
-        \setCJKmainfont{Noto Serif CJK SC}[
-          AutoFakeBold = true,
-          ItalicFont   = Noto Sans CJK SC,
-        ]%
-        \setCJKsansfont{Noto Sans CJK SC}[AutoFakeBold=true]%
-        \setCJKmonofont{Noto Sans Mono CJK SC}%
-        \setCJKfamilyfont{zhsong}{Noto Serif CJK SC}[AutoFakeBold=true]%
-        \setCJKfamilyfont{zhhei}{Noto Sans CJK SC}[AutoFakeBold=true]%
-        \setCJKfamilyfont{zhkai}{Noto Sans CJK SC}[AutoFakeBold=true]%
-        \setCJKfamilyfont{zhfs}{Noto Serif CJK SC}[AutoFakeBold=true]%
-      }
-      \ustb@set@cjk@font@linux
-    \fi
-  \fi
+  \ustb@set@cjk@font@windows
+
+  % 设置西文默认字体为Times New Roman
+  \setmainfont{Times New Roman}[
+    Ligatures = TeX,
+  ]
 \fi
 
 % 定义带自动加粗效果的命令
@@ -117,43 +73,25 @@
 \providecommand{\boldkaiti}{\kaishu\bfseries}
 \providecommand{\boldfangsong}{\fangsong\bfseries}
 
-% 设置西文默认字体为Times New Roman
-\setmainfont{Times New Roman}[
-  Ligatures = TeX,
-]
-
-% 设置页眉页脚
-\fancypagestyle{plain}{
-  \fancyhf{}
-  \fancyhead[C]{%
-    \begin{minipage}{\textwidth}
-      \centering
-      \songti\zihao{5}北京科技大学本科生毕业设计(论文)\\
-      \rule[1cm]{\textwidth}{0.1pt}
-    \end{minipage}
-  }
-  \fancyfoot[C]{\raisebox{1.5ex}{\zihao{5}-\ \thepage\ -}}
-  \renewcommand{\headrulewidth}{0pt}
+% 设置页边距
+\geometry{
+  top=1.5cm,        % 上边距3厘米
+  bottom=2.5cm,     % 下边距2.5厘米
+  left=3cm,       % 左边距（内边距）3厘米
+  right=3cm,      % 右边距（外边距）3厘米
+  bindingoffset=1cm,   % 装订线距离1厘米
+  headheight=0.8cm,  % 页眉高度0.8厘米
+  headsep=0.5cm,     % 页眉底端到正文顶端的距离0.5厘米
+  footskip=0.8cm,    % 正文底端到页脚底端的距离
+  includehead=true,  % 页眉计入页面总高度
+  includefoot=true,  % 页脚计入页面总高度
 }
-
-% 设置普通页面的页眉页脚
-\pagestyle{fancy}
-  \fancyhf{}
-  \fancyhead[C]{%
-    \begin{minipage}{\textwidth}
-      \centering
-      \songti\zihao{5}北京科技大学本科生毕业设计(论文)\\
-      \rule[1cm]{\textwidth}{0.1pt}
-    \end{minipage}
-  }
-  \fancyfoot[C]{\raisebox{1.5ex}{\zihao{5}-\ \thepage\ -}}
-\renewcommand{\headrulewidth}{0pt}
 
 % 设置章节标题样式
 \ctexset{
   chapter = {
     name = {},
-    aftername = {},
+    aftername = { },
     nameformat = {},
     titleformat = {},
     number = \arabic{chapter},
@@ -164,7 +102,7 @@
     break = \clearpage,
   },
   section = {
-    aftername = {},
+    aftername = { },
     format = \heiti\zihao{4}\bfseries,
     hang=false,
     beforeskip = {22pt},
@@ -172,25 +110,13 @@
     fixskip = true        % 固定间距
   },
   subsection = {
-    aftername = {},
+    aftername = { },
     format = \heiti\zihao{4}\bfseries,
     hang=false,
     beforeskip = {22pt},
     afterskip = {23.5pt},
     fixskip = true        % 固定间距
   },
-}
-
-% 设置页边距
-\geometry{
-  top=3cm,        % 上边距3厘米
-  bottom=2.5cm,     % 下边距2.5厘米（按照官方模板应当是2cm，但实际使用中发现2cm会导致页码显示不全，因此改为2.5cm）
-  left=3cm,       % 左边距（内边距）3厘米
-  right=3cm,      % 右边距（外边距）3厘米
-  bindingoffset=1cm,   % 装订线距离1厘米
-  headheight=0.5cm,  % 页眉高度0.5厘米
-  headsep=1.0cm,     % 页眉底端到正文顶端的距离1.0厘米（用于设置页眉）
-  footskip=0.8cm,    % 正文底端到页脚底端的距离（用于设置页脚页码）
 }
 
 % 设置目录页格式
@@ -288,3 +214,34 @@
 
 \AtBeginEnvironment{figure}{\vspace{-2pt}}  % 图片环境前添加额外间距
 \AtEndEnvironment{table}{\vspace{-6pt}}     % 表格环境后添加额外间距
+
+% 设置页眉页脚
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[C]{%
+    \makebox[\textwidth]{%
+      \begin{minipage}[t]{\textwidth}%
+        \centering
+        \songti\zihao{5}北京科技大学本科生毕业设计(论文)\\
+        \rule[1cm]{\textwidth}{0.1pt}%
+      \end{minipage}%
+    }%
+  }
+  \fancyfoot[C]{\raisebox{1.5ex}{\zihao{5}-\ \thepage\ -}}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+% 设置普通页面的页眉页脚
+\pagestyle{fancy}
+  \fancyhf{}
+  \fancyhead[C]{%
+    \makebox[\textwidth]{%
+      \begin{minipage}[t]{\textwidth}%
+        \centering
+        \songti\zihao{5}北京科技大学本科生毕业设计(论文)\\
+        \rule[1cm]{\textwidth}{0.1pt}%
+      \end{minipage}%
+    }%
+  }
+  \fancyfoot[C]{\raisebox{1.5ex}{\zihao{5}-\ \thepage\ -}}
+\renewcommand{\headrulewidth}{0pt}
