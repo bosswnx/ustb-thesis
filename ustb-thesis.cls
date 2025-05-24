@@ -245,3 +245,20 @@
   }
   \fancyfoot[C]{\raisebox{1.5ex}{\zihao{5}-\ \thepage\ -}}
 \renewcommand{\headrulewidth}{0pt}
+
+% 设置列表间距
+\usepackage{enumitem}
+\setlist{
+  itemsep=0pt,      % 列表项之间的垂直间距
+  parsep=0pt,       % 段落之间的垂直间距
+  topsep=0pt,       % 列表与上文之间的垂直间距
+  partopsep=0pt,    % 列表与上文之间的额外垂直间距（当列表出现在新段落开始时）
+  leftmargin=2em,   % 列表的左边距
+  rightmargin=0pt,  % 列表的右边距
+  labelsep=0.5em,   % 标签与文本之间的水平间距
+}
+
+% 设置列表环境中的行间距
+\AtBeginEnvironment{itemize}{\linespread{1.41}\selectfont}
+\AtBeginEnvironment{enumerate}{\linespread{1.41}\selectfont}
+\AtBeginEnvironment{description}{\linespread{1.41}\selectfont}
