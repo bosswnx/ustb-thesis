@@ -35,20 +35,22 @@
 
 \cleardoublepage
 
+% 声明
 \includepdf[pages=-]{src/3-statement.pdf}
 
 \cleardoublepage
 
+% 任务书
 \includepdf[pages=-]{src/4-taskplan.pdf}
 
 \cleardoublepage
 
-\pagenumbering{Roman}
+\pagenumbering{Roman} % 罗马页码
 \input{src/5-abstract.tex}
 
 \cleardoublepage
 
-\tableofcontents
+\tableofcontents % 生成目录
 
 \cleardoublepage
 
@@ -60,7 +62,7 @@
 
 \cleardoublepage
 
-\pagenumbering{arabic}
+\pagenumbering{arabic} % 重置页码
 
 % 正文页面，删除添加章节请修改这里的内容
 \input{content/ch1.tex}
@@ -72,8 +74,8 @@
 \cleardoublepage
 
 % 参考文献
-\printbibliography
 \addcontentsline{toc}{chapter}{参考文献}
+\printbibliography
 
 \cleardoublepage
 
